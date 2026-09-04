@@ -21,6 +21,14 @@ Each bar instance identifies the screen that hosts it, finds the matching Hyprla
 
 The plugin does not hardcode a highlight color. It uses the standard `WidgetButton.active` state, which inherits the bar's active color. The result follows the current Omarchy theme and stays visually homogeneous with the rest of the shell when themes change.
 
+## Screenshots
+
+| Multi-monitor overview | Monitor-local workspace feedback |
+| --- | --- |
+| _Add `screenshots/multi-monitor-overview.png`_ | _Add `screenshots/monitor-local-feedback.png`_ |
+
+The first screenshot should show both displays with a different workspace active on each. The second should give a closer view of one bar, showing the theme-colored monitor-local workspace alongside the separate globally focused-workspace glyph.
+
 ## Installation
 
 Install and enable the plugin directly from GitHub:
