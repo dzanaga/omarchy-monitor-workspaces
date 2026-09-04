@@ -2,32 +2,17 @@
 
 Monitor-aware workspace feedback for the Omarchy top bar.
 
-## The problem
+## Motivation
 
-Omarchy's built-in workspace widget marks Hyprland's globally focused workspace. On a multi-monitor setup, the same global marker appears in every monitor's bar.
+Omarchy's built-in workspace widget marks Hyprland's globally focused workspace. On a multi-monitor setup, the same global marker appears in every monitor's bar. I find it useful to know what workspace is currently displayed on each monitor, even when not focused. This allows me to move windows around more easily on the desired monitor.
+With this plugin, omarchy's active theme color is used to highlight the workspace associated with each monitor.
+For example, the screenshot below shows a 2 monitor setup, monitor A (left) is in focus and hosts workspace 2; monitor B (right) is currently not in focus but shows that it's hosting workspace 1.
 
-For example, suppose a laptop display is showing workspace 1 and a second monitor is showing workspace 2. If focus is currently on workspace 2, both bars emphasize workspace 2. Looking at the laptop's bar therefore does not tell you that the workspace visible on that display is workspace 1.
+| Multi-monitor overview | 
+| --- | 
+| _`preview.png`_ |   
 
-## What this plugin changes
-
-This plugin gives the two states separate meanings:
-
-- The workspace currently displayed on a monitor uses Omarchy's active theme color in that monitor's bar.
-- Hyprland's globally focused workspace retains Omarchy's existing special glyph.
-- Occupied workspaces remain at full opacity.
-- Empty, inactive workspaces remain dimmed.
-
-Each bar instance identifies the screen that hosts it, finds the matching Hyprland monitor, and highlights only that monitor's `activeWorkspace`. Consequently, every monitor gets exactly one local active-workspace highlight instead of every bar showing the same set of monitor-active workspaces.
-
-The plugin does not hardcode a highlight color. It uses the standard `WidgetButton.active` state, which inherits the bar's active color. The result follows the current Omarchy theme and stays visually homogeneous with the rest of the shell when themes change.
-
-## Screenshots
-
-| Multi-monitor overview | Monitor-local workspace feedback |
-| --- | --- |
-| _Add `screenshots/multi-monitor-overview.png`_ | _Add `screenshots/monitor-local-feedback.png`_ |
-
-The first screenshot should show both displays with a different workspace active on each. The second should give a closer view of one bar, showing the theme-colored monitor-local workspace alongside the separate globally focused-workspace glyph.
+(Apologies for the screenshot quality, quick and dirty pasting of randomly taken shots at different resolutions...)
 
 ## Installation
 
@@ -84,8 +69,6 @@ omarchy restart shell
 ## Attribution
 
 This plugin is derived from Omarchy's built-in `omarchy.workspaces` widget and preserves its workspace listing, occupancy, focus, and click behavior. The monitor-local active-state behavior is the substantive modification.
-
-Omarchy is available under the MIT License.
 
 ## License
 
