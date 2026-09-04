@@ -8,11 +8,12 @@ Omarchy's built-in workspace widget marks Hyprland's globally focused workspace.
 With this plugin, Omarchy's active theme color is used by default to highlight the workspace associated with each monitor.
 For example, the screenshot below shows a 2 monitor setup, monitor A (left) is in focus and hosts workspace 2; monitor B (right) is currently not in focus but shows that it's hosting workspace 1.
 
-Quickshell 0.3.1 can retain stale `monitor.activeWorkspace` data after Hyprland moves a workspace between monitors, causing workspace indicators to highlight the wrong monitor until the user changes workspaces again. The plugin's monitor-state workaround listens for Hyprland's `moveworkspacev2` event and forces Quickshell to re-query Hyprland's monitor state immediately after the move. The behavior is tracked in [Omarchy issue #8364](https://github.com/basecamp/omarchy/issues/8364); the proposed Quickshell-side fix is available on the [`fix/hyprland-workspace-monitor-state`](https://github.com/dzanaga/quickshell/tree/fix/hyprland-workspace-monitor-state) branch for reference.
-
 ![Multi-monitor workspace overview](./preview.png)
 
 (Apologies for the screenshot quality, quick and dirty pasting of randomly taken shots at different resolutions...)
+
+> [!NOTE]
+> Quickshell 0.3.1 can leave monitor workspace state stale after a workspace moves between monitors. This plugin refreshes that state on `moveworkspacev2`. See [Omarchy #8364](https://github.com/basecamp/omarchy/issues/8364) and the proposed [Quickshell fix](https://github.com/dzanaga/quickshell/tree/fix/hyprland-workspace-monitor-state).
 
 ## Installation
 
