@@ -4,10 +4,19 @@ import Quickshell
 import Quickshell.Hyprland
 import qs.Commons
 import qs.Ui
+import "WorkspacesModel.js" as WorkspacesModel
 
 BarWidget {
   id: root
   moduleName: "omarchy.workspaces"
+
+  Connections {
+    target: Hyprland
+    function onRawEvent(event) {
+      // Quickshell 0.3.1 can leave monitor.activeWorkspace stale after a move.
+      if (WorkspacesModel.movesWorkspace(event)) Hyprland.refreshMonitors()
+    }
+  }
 
   function workspaceById(id) {
     var values = Hyprland.workspaces.values

@@ -8,6 +8,8 @@ Omarchy's built-in workspace widget marks Hyprland's globally focused workspace.
 With this plugin, omarchy's active theme color is used to highlight the workspace associated with each monitor.
 For example, the screenshot below shows a 2 monitor setup, monitor A (left) is in focus and hosts workspace 2; monitor B (right) is currently not in focus but shows that it's hosting workspace 1.
 
+Quickshell 0.3.1 can retain stale `monitor.activeWorkspace` data after Hyprland moves a workspace between monitors. The plugin listens for Hyprland's `moveworkspacev2` event and refreshes the monitor model after the move, keeping the monitor-local highlight correctly wired.
+
 | Multi-monitor overview | 
 | --- | 
 | _`preview.png`_ |   

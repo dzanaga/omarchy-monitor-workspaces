@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "id": "io.github.dzanaga.monitor-workspaces",
   "name": "Monitor Workspaces",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "author": "dzanaga",
   "description": "Monitor-aware workspace indicators for the Omarchy bar",
   "kinds": [
