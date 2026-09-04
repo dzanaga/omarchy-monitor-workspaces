@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "id": "io.github.dzanaga.monitor-workspaces",
   "name": "Monitor Workspaces",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "author": "dzanaga",
   "description": "Monitor-aware workspace indicators for the Omarchy bar",
   "kinds": [
@@ -16,7 +16,19 @@
     "description": "Workspace indicators scoped to the monitor displaying the bar",
     "category": "Compositor",
     "defaultSection": "left",
-    "allowMultiple": false
+    "allowMultiple": false,
+    "defaults": {
+      "highlightDisplayedWorkspaces": true
+    },
+    "schema": [
+      {
+        "key": "highlightDisplayedWorkspaces",
+        "type": "boolean",
+        "label": "Highlight displayed workspaces",
+        "description": "Use the active theme color for the workspace displayed on each monitor.",
+        "defaultValue": true
+      }
+    ]
   },
   "omarchy": {
     "clonedFrom": "omarchy.workspaces"

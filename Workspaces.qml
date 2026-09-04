@@ -9,6 +9,12 @@ import "WorkspacesModel.js" as WorkspacesModel
 BarWidget {
   id: root
   moduleName: "omarchy.workspaces"
+  property var settings
+
+  readonly property bool highlightDisplayedWorkspaces: !settings
+    || settings.highlightDisplayedWorkspaces === undefined
+    || settings.highlightDisplayedWorkspaces === null
+    || settings.highlightDisplayedWorkspaces === true
 
   Connections {
     target: Hyprland
@@ -85,8 +91,8 @@ BarWidget {
 
         bar: root.bar
         text: focused ? "\uDB85\uDCFB" : (modelData === 10 ? "0" : String(modelData))
-        active: displayed
-        opacity: occupied || focused || displayed ? 1 : 0.5
+        active: root.highlightDisplayedWorkspaces && displayed
+        opacity: occupied || focused || (root.highlightDisplayedWorkspaces && displayed) ? 1 : 0.5
         horizontalMargin: 6
         verticalPadding: 6
         fixedWidth: root.vertical ? root.barSize : Style.space(20)

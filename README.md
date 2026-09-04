@@ -5,14 +5,12 @@ Monitor-aware workspace feedback for the Omarchy top bar.
 ## Motivation
 
 Omarchy's built-in workspace widget marks Hyprland's globally focused workspace. On a multi-monitor setup, the same global marker appears in every monitor's bar. I find it useful to know what workspace is currently displayed on each monitor, even when not focused. This allows me to move windows around more easily on the desired monitor.
-With this plugin, omarchy's active theme color is used to highlight the workspace associated with each monitor.
+With this plugin, Omarchy's active theme color is used by default to highlight the workspace associated with each monitor.
 For example, the screenshot below shows a 2 monitor setup, monitor A (left) is in focus and hosts workspace 2; monitor B (right) is currently not in focus but shows that it's hosting workspace 1.
 
 Quickshell 0.3.1 can retain stale `monitor.activeWorkspace` data after Hyprland moves a workspace between monitors. The plugin listens for Hyprland's `moveworkspacev2` event and refreshes the monitor model after the move, keeping the monitor-local highlight correctly wired.
 
-| Multi-monitor overview | 
-| --- | 
-| _`preview.png`_ |   
+![Multi-monitor workspace overview](./preview.png)
 
 (Apologies for the screenshot quality, quick and dirty pasting of randomly taken shots at different resolutions...)
 
@@ -25,6 +23,21 @@ omarchy plugin add https://github.com/dzanaga/omarchy-monitor-workspaces.git --e
 ```
 
 The plugin declares itself as a clone of `omarchy.workspaces`, allowing it to replace the built-in workspace widget while preserving its normal position and integration.
+
+## Configuration
+
+Highlighting is enabled by default. Disable **Highlight displayed workspaces** in the widget's plugin settings to retain the stock workspace appearance while continuing to use the plugin's monitor-state workaround.
+
+The same option can be configured directly on the widget entry in `~/.config/omarchy/shell.json`:
+
+```json
+{
+  "id": "io.github.dzanaga.monitor-workspaces",
+  "highlightDisplayedWorkspaces": false
+}
+```
+
+Omit `highlightDisplayedWorkspaces`, or set it to `true`, to use the plugin's highlighted appearance.
 
 ## Updating
 
