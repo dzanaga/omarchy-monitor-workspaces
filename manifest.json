@@ -1,0 +1,24 @@
+{
+  "schemaVersion": 1,
+  "id": "io.github.dzanaga.monitor-workspaces",
+  "name": "Monitor Workspaces",
+  "version": "1.0.0",
+  "author": "dzanaga",
+  "description": "Monitor-aware workspace indicators for the Omarchy bar",
+  "kinds": [
+    "bar-widget"
+  ],
+  "entryPoints": {
+    "barWidget": "Workspaces.qml"
+  },
+  "barWidget": {
+    "displayName": "Monitor Workspaces",
+    "description": "Workspace indicators scoped to the monitor displaying the bar",
+    "category": "Compositor",
+    "defaultSection": "left",
+    "allowMultiple": false
+  },
+  "omarchy": {
+    "clonedFrom": "omarchy.workspaces"
+  }
+}
